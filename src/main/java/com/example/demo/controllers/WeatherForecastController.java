@@ -15,7 +15,7 @@ public class WeatherForecastController {
     private WeatherForecastService weatherService;
 
     @GetMapping("/weather/{city}")
-    public ResponseEntity<Weather> getWeatherForecast(@PathVariable String city) {
-        Weather weatherForecast = weatherService.getWeatherData(city);
+    public ResponseEntity<String> getWeatherForecast(@PathVariable String city) {
+        String weatherForecast = weatherService.getWeatherData(city);
         return new ResponseEntity<>(weatherForecast, HttpStatus.OK);    }
 }

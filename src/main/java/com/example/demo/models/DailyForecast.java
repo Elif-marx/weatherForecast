@@ -1,3 +1,4 @@
+/*
 package com.example.demo.models;
 
 public class DailyForecast {
@@ -182,3 +183,4 @@ public class DailyForecast {
         this.uvi = uvi;
     }
 }
+*/

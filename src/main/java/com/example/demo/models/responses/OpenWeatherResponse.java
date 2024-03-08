@@ -1,3 +1,4 @@
+/*
 package com.example.demo.models.responses;
 
 import com.example.demo.models.*;
@@ -86,4 +87,4 @@ public class OpenWeatherResponse {
     public void setAlerts(List<Alert> alerts) {
         this.alerts = alerts;
     }
-}
+}*/
