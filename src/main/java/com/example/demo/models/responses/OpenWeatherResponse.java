@@ -1,4 +1,3 @@
-/*
 package com.example.demo.models.responses;
 
 import com.example.demo.models.*;
@@ -6,85 +5,59 @@ import com.example.demo.models.*;
 import java.util.List;
 
 public class OpenWeatherResponse {
-    private double lat;
-    private double lon;
-    private String timezone;
-    private int timezone_offset;
-    private CurrentWeather current;
-    private List<MinutelyForecast> minutely;
-    private List<HourlyForecast> hourly;
-    private List<DailyForecast> daily;
-    private List<Alert> alerts;
+    private String cod;
+    private Integer message;
+    private Integer cnt;
+    private List<WeatherList> list;
+    private City city;
 
-    public double getLat() {
-        return lat;
+    public OpenWeatherResponse(String cod, Integer message, Integer cnt, List<WeatherList> list, City city) {
+        this.cod = cod;
+        this.message = message;
+        this.cnt = cnt;
+        this.list = list;
+        this.city = city;
     }
 
-    public void setLat(double lat) {
-        this.lat = lat;
+    public OpenWeatherResponse() {
     }
 
-    public double getLon() {
-        return lon;
+    public String getCod() {
+        return cod;
+    }
+    public void setCod(String cod) {
+        this.cod = cod;
     }
 
-    public void setLon(double lon) {
-        this.lon = lon;
+    public Integer getMessage() {
+        return message;
     }
 
-    public String getTimezone() {
-        return timezone;
+    public void setMessage(Integer message) {
+        this.message = message;
     }
 
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
+    public Integer getCnt() {
+        return cnt;
     }
 
-    public int getTimezone_offset() {
-        return timezone_offset;
+    public void setCnt(Integer cnt) {
+        this.cnt = cnt;
     }
 
-    public void setTimezone_offset(int timezone_offset) {
-        this.timezone_offset = timezone_offset;
+    public City getCity() {
+        return city;
     }
 
-    public CurrentWeather getCurrent() {
-        return current;
+    public void setCity(City city) {
+        this.city = city;
     }
 
-    public void setCurrent(CurrentWeather current) {
-        this.current = current;
+    public List<WeatherList> getList() {
+        return list;
     }
 
-    public List<MinutelyForecast> getMinutely() {
-        return minutely;
+    public void setList(List<WeatherList> list) {
+        this.list = list;
     }
-
-    public void setMinutely(List<MinutelyForecast> minutely) {
-        this.minutely = minutely;
-    }
-
-    public List<HourlyForecast> getHourly() {
-        return hourly;
-    }
-
-    public void setHourly(List<HourlyForecast> hourly) {
-        this.hourly = hourly;
-    }
-
-    public List<DailyForecast> getDaily() {
-        return daily;
-    }
-
-    public void setDaily(List<DailyForecast> daily) {
-        this.daily = daily;
-    }
-
-    public List<Alert> getAlerts() {
-        return alerts;
-    }
-
-    public void setAlerts(List<Alert> alerts) {
-        this.alerts = alerts;
-    }
-}*/
+}

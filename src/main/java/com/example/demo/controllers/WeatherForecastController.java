@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Weather;
+import com.example.demo.models.responses.MyResponse;
+import com.example.demo.models.responses.OpenWeatherResponse;
 import com.example.demo.services.WeatherForecastService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +17,8 @@ public class WeatherForecastController {
     private WeatherForecastService weatherService;
 
     @GetMapping("/weather/{city}")
-    public ResponseEntity<String> getWeatherForecast(@PathVariable String city) {
-        String weatherForecast = weatherService.getWeatherData(city);
-        return new ResponseEntity<>(weatherForecast, HttpStatus.OK);    }
+    public ResponseEntity<MyResponse> getWeatherForecast(@PathVariable String city) {
+        MyResponse weatherForecast = weatherService.getWeatherData(city);
+        return new ResponseEntity<>(weatherForecast, HttpStatus.OK);
+    }
 }
