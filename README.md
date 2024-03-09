@@ -1,8 +1,9 @@
 # Weather Forecast For 48 Hours
 
 Bu uygulama, OpenWeather API kullanılarak bir şehrin önümüzdeki 48 saatlik hava durumunu 3 saatlik periodlar halinde tahminini sağlar.
-Java 17 
-Spring Boot 3.2.3
+-Java 17 
+-Spring Boot 3.2.3
+-Maven 3.8.1
 
 ## Kullanım
 
