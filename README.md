@@ -4,6 +4,7 @@ Bu uygulama, OpenWeather API kullanılarak bir şehrin önümüzdeki 48 saatlik 
 - Java 19
 - Spring Boot 3.2.3
 - Maven 3.8.1
+- JUnit 5.7.0
 
 ## Kullanım
 
