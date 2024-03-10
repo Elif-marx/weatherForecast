@@ -23,11 +23,11 @@ public class WeatherForecastService {
     @Autowired
     RestTemplate restTemplate;
     public static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
-    private LocalDateTime now = LocalDateTime.now();
+    private LocalDateTime now;
 
     public GetWeatherForecastResponse getWeatherData(String city) {
         //String apiUrl = BASE_URL + "forecast?q=" + city + "&appid=" + API_KEY;
-
+        now = LocalDateTime.now();
         String apiUrl = UriComponentsBuilder.fromHttpUrl(BASE_URL)
                 .path("/forecast")
                 .queryParam("q", city)
@@ -43,21 +43,22 @@ public class WeatherForecastService {
             return new GetWeatherForecastResponse(now, weatherInfoList, "Weather data retrieved.");
         } catch (Exception e) {
             e.printStackTrace();
-            return handleException();
+            return handleException(e.getMessage());
         }
     }
 
-    private GetWeatherForecastResponse handleException() {
+    private GetWeatherForecastResponse handleException(String errorMessage) {
         GetWeatherForecastResponse errorResponse = new GetWeatherForecastResponse();
-        errorResponse.setMessage("Weather data could not be retrieved.");
+        errorResponse.setMessage("Weather data could not be retrieved. Error: " + errorMessage);
         return errorResponse;
     }
 
     private List<WeatherInfo> get48hoursForecast(List<WeatherList> weatherLists) {
         LocalDateTime endDateTime = now.plusHours(48);
         List<WeatherList> twoDaysList = weatherLists.stream().
-                filter(weather -> weather.getDateTime().isAfter(now) &&
-                        weather.getDateTime().isBefore(endDateTime)).collect(Collectors.toList());
+                filter(weather ->
+                        weather.getDateTime().isAfter(now) &&
+                                weather.getDateTime().isBefore(endDateTime)).collect(Collectors.toList());
 
         return getWeatherInfoFrom48hoursForecast(twoDaysList);
     }
