@@ -18,7 +18,9 @@ public class OpenWeatherResponse {
         this.list = list;
         this.city = city;
     }
-
+    public OpenWeatherResponse(List<WeatherList> list) {
+        this.list=list;
+    }
     public OpenWeatherResponse() {
     }
 
